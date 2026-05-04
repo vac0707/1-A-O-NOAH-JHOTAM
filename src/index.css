@@ -5,9 +5,10 @@
   --font-serif: "Cinzel", serif;
   --font-sans: "Inter", sans-serif;
   --font-script: "Great Vibes", cursive;
-  --color-royal-blue: #0A1E3C;
-  --color-royal-gold: #D4AF37;
-  --color-royal-gold-light: #F9E29C;
+  --color-royal-blue: #001f54;
+  --color-royal-blue-light: #034078;
+  --color-royal-gold: #FFD700;
+  --color-royal-gold-dark: #B8860B;
 }
 
 @layer base {
@@ -16,21 +17,68 @@
   }
 }
 
-.gold-gradient-text {
-  background: linear-gradient(to right, #D4AF37, #F9E29C, #D4AF37);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Efecto Capitoné (Acolchado Real) */
+.bg-capitone {
+  background-color: #001a4d;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(45deg, rgba(0, 0, 0, 0.2) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0, 0, 0, 0.2) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.2) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.2) 75%);
+  background-size: 40px 40px;
+  position: relative;
 }
 
-.gold-border {
-  border: 1px solid transparent;
-  background: linear-gradient(var(--color-royal-blue), var(--color-royal-blue)) padding-box,
-              linear-gradient(to right, #D4AF37, #F9E29C, #D4AF37) border-box;
+.bg-capitone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent, rgba(0, 0, 0, 0.4));
+  pointer-events: none;
+}
+
+/* Estilo Pergamino (Scroll) */
+.parchment {
+  background: #f4e4bc;
+  background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+  color: #2c1e0f;
+  box-shadow: 
+    inset 0 0 50px rgba(0,0,0,0.1),
+    0 10px 20px rgba(0,0,0,0.3);
+  position: relative;
+  border: 4px solid #d4c19c;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(to right, #B8860B, #FFD700, #F9E29C, #FFD700, #B8860B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.3));
+}
+
+.gold-border-premium {
+  border: 2px solid transparent;
+  background: linear-gradient(#001f54, #001f54) padding-box,
+              linear-gradient(to right, #B8860B, #FFD700, #B8860B) border-box;
+}
+
+.drop-shadow-glow {
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
 }
 
 @keyframes sparkle {
   0%, 100% { opacity: 0; transform: scale(0); }
-  50% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
 }
 
 .sparkle {
@@ -39,4 +87,10 @@
   border-radius: 50%;
   pointer-events: none;
   animation: sparkle 2s infinite;
+}
+
+.ornament-line {
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--color-royal-gold), transparent);
+  width: 100%;
 }
