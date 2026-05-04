@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&family=Great+Vibes&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cinzel", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-script: "Great Vibes", cursive;
+  --color-royal-blue: #0A1E3C;
+  --color-royal-gold: #D4AF37;
+  --color-royal-gold-light: #F9E29C;
+}
+
+@layer base {
+  body {
+    @apply bg-royal-blue text-white overflow-x-hidden antialiased;
+  }
+}
+
+.gold-gradient-text {
+  background: linear-gradient(to right, #D4AF37, #F9E29C, #D4AF37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--color-royal-blue), var(--color-royal-blue)) padding-box,
+              linear-gradient(to right, #D4AF37, #F9E29C, #D4AF37) border-box;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.sparkle {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkle 2s infinite;
+}
