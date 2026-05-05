@@ -395,7 +395,7 @@ export default function App() {
               >
                 <div className="w-68 h-68 md:w-80 md:h-80 mx-auto rounded-full p-2 border-4 border-royal-gold overflow-hidden relative group shadow-[0_0_30px_rgba(255,215,0,0.3)] animate-float">
                   <img 
-                    src="https://images.unsplash.com/photo-1621252179027-94459d278660?auto=format&fit=crop&q=80&w=800" 
+                    src="https://res.cloudinary.com/dcnynnstm/image/upload/v1777946323/IMG_7332.JPG_ibh3xk.jpg" 
                     alt="Noah Jhotam" 
                     className="w-full h-full object-cover rounded-full transition-all duration-700"
                   />
@@ -601,7 +601,7 @@ export default function App() {
                       className="flex items-center justify-center gap-3 px-8 py-4 bg-[#075E54] hover:bg-[#128C7E] text-white rounded-full transition-all font-bold shadow-xl"
                     >
                       <MessageCircle fill="white" size={20} />
-                      Confirmar con {i === 0 ? "Papá" : "Mamá"}: {num}
+                      Confirmar con {i === 0 ? "Mamá" : "Papá"}: {num}
                     </button>
                   ))}
                 </div>
